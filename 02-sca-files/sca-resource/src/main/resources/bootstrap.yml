@@ -1,0 +1,24 @@
+server:
+  port: 8881
+spring:
+  application:
+    name: sca-resource
+  resources:
+    static-locations: file:F:\IMAGESjava4
+  servlet:
+    multipart:
+      max-file-size: 100MB    #控制文件上传的大小
+      enabled: true    #
+      max-request-size: 100MB   #控制每次请求的大小
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+#下面这几个配置是自己定义的  后续会在程序中进行读取
+cy:
+  resource:
+    path: F:\IMAGES02java4
+    host: http://localhost:8881/ #定义上传文件对应的访问服务器
