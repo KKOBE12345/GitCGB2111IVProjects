@@ -1,0 +1,32 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: sca-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+        namespace: 524da724-3365-48f8-bb47-084aae87cb00
+        group: DEV_GROUP_51
+        shared-configs[0]:
+              data-id: app-public-dev.yml
+              refresh: true
+    sentinel:
+      transport:
+        dashboard: localhost:8180
+        #port: 8719  #SENTINEL  控制面板地址
+      web-context-unify: false  #关闭URL聚合
+    #logging:
+#  level:
+#    com.cy: info
+#  file:
+#    path: f:/logs
+#  pattern:
+#    console: '%-5level %msg %n'
+#    file: '%d %-5level %thread %logger %msg %n'
+
+

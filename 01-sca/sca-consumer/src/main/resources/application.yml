@@ -1,0 +1,20 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: sca-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8180
+        #port: 8719  #SENTINEL  控制面板地址
+      web-context-unify: false  #关闭URL聚合
+feign:
+  hystrix:
+    enabled: true    #feign启动熔断处理
+sca-provider:
+    ribbon:
+      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

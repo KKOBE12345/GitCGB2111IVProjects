@@ -1,0 +1,30 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: sca-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8180
+        port: 8719  #假如端口被占用会递增
+      eager: true   #true表示关闭懒加载  服务启动时就会和SENTINEL控制台连接
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:   #网关路由的定义
+        - id: router01
+          #uri: http://locolhost:8081/   #定义请求转发的uri
+          uri: lb://sca-provider/   #服务名  lb是负载均衡的缩写
+          predicates:   #断言（谓词）   匹配请求规则   所有的谓词全部满足  才会帮你进行路由转发
+            - Path=/nacos/kobe/provider/echo/**
+            - After=2022-02-26T09:13:59.789+08:00[Asia/Shanghai]    #只有在这个时间点之前才可以访问
+            #- Header=X-Request-Id, \d+
+#            - Method=GET
+          filters:   #当上一层返回值为TRUE时   这执行FILTER
+            - StripPrefix=2  # 去掉访问路径PATH中的第一层目录
+

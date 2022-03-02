@@ -1,0 +1,11 @@
+GET http://localhost:8090/consumer/sentinel
+
+###
+
+GET http://localhost:8090/consumer/kobe123/艾伦艾佛森
+
+###
+
+GET http://localhost:8090//consumer/echo777
+
+###
