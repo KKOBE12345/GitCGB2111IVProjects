@@ -65,6 +65,7 @@ public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerEndpointsConfigurer endpoints)
             throws Exception {
         //super.configure(endpoints);
+        System.out.println(1);
         endpoints
                 //由谁完成认证？(认证管理器)
                 .authenticationManager(authenticationManager)
