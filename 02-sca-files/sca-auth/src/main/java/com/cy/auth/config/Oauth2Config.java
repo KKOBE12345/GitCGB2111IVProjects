@@ -16,7 +16,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 
 import java.util.Arrays;
 
-/**
+/**kobekobekobekobekobe
  * 在这个对象中负责将所有的认证和授权相关配置进行整合，例如
  * 业务方面：
  * 1)如何认证(认证逻辑的设计)
