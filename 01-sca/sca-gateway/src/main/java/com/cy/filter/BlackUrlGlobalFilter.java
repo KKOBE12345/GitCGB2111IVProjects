@@ -3,11 +3,15 @@ package com.cy.filter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
+import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +40,11 @@ public class BlackUrlGlobalFilter implements GlobalFilter, Ordered {
         System.out.println(path);
         ServerHttpResponse response = exchange.getResponse();
         if(blackUrl.contains(path)){
-            throw new RuntimeException("这个请求已经不可以访问了");
+//            throw new RuntimeException("这个请求已经不可以访问了");
+            //告诉浏览器相应的数据类型  以及用什么编码呈现数据
+            response.getHeaders().add(HttpHeaders.CONTENT_TYPE, "text/html;charset=utf-8");
+            DataBuffer data=response.bufferFactory().wrap("当前的url不允许访问！！！".getBytes());
+            return response.writeWith(Mono.just(data));
         }
 
         return chain.filter(exchange);
