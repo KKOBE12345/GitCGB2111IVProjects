@@ -21,7 +21,7 @@ public class GatewayConfig {
                 //定义要响应的数据
                 Map<String,Object> map=new HashMap<>();
                 map.put("status", 42999999);
-                map.put("message", "you too many request~~~");
+                map.put("message", "you too many requests~~~");
 
                 //封装响应数据并返回
 

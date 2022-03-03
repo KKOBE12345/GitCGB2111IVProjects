@@ -44,4 +44,13 @@ public class ProviderController {
 
     }
 
+    @GetMapping("/provider/echo5269/{mmm}")
+    public String word12(@PathVariable("mmm") String kobeeee) throws InterruptedException {
+//        System.out.println(logLevel);
+//            Thread.sleep(5000);
+        log.info("哈哈哈开始的时间是：{}",System.currentTimeMillis());
+        return kobe+"么么哒！"+kobeeee;
+
+    }
+
 }

@@ -11,7 +11,17 @@ X-Request-Id: 23244567
 
 ###
 
-GET http://localhost:9000/nacos/kobe/provider/echo/kkkkkkkkkkk
+GET http://localhost:9000/nacos/kobe/provider/echo/123
 tokenid: 1
 
 ###
+
+GET http://localhost:9000/nacos/kobejames/provider/echo5269/24
+
+###
+
+GET http://localhost:9000/nacos/kobejames/provider/echo5269/23
+
+###
+
+
