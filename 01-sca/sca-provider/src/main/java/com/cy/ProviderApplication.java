@@ -32,7 +32,7 @@ public class ProviderApplication {
         @GetMapping("/provider/echo/{mmm}")
         public String word(@PathVariable("mmm") String kobeeee) throws InterruptedException {
             System.out.println(logLevel);
-            Thread.sleep(5000);
+//            Thread.sleep(5000);
             log.info("哈哈哈开始的时间是：{}",System.currentTimeMillis());
             return kobe+"凌晨四点的洛杉矶！！么么哒！！！"+kobeeee;
 

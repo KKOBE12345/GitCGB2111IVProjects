@@ -1,5 +1,6 @@
 package com.cy.filter;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -15,10 +16,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@ConfigurationProperties("web.request")
 @Component
 public class BlackUrlGlobalFilter implements GlobalFilter, Ordered {
-    public static List<String> blackUrl=new ArrayList<>();
+    private List<String> blackUrl=new ArrayList<>();
 
 //    public BlackUrlGlobalFilter() {
 //
@@ -26,16 +27,34 @@ public class BlackUrlGlobalFilter implements GlobalFilter, Ordered {
 //        blackUrl.add("/nacos/kobejames/provider/echo5269/24");
 //    }
 
-    public void black(){
-        blackUrl.add("/nacos/kobejames/provider/echo5269/23");
-        blackUrl.add("/nacos/kobejames/provider/echo5269/24");
+//    public void black(){
+//        blackUrl.add("/nacos/kobejames/provider/echo5269/23");
+//        blackUrl.add("/nacos/kobejames/provider/echo5269/24");
+//    }
+
+//    public static List<String> getBlackUrl() {
+//        return blackUrl;
+//    }
+//
+//
+//    public void setBlackUrl(List<String> blackUrl) {
+//        BlackUrlGlobalFilter.blackUrl = blackUrl;
+//    }
+
+
+    public List<String> getBlackUrl() {
+        return blackUrl;
+    }
+
+    public void setBlackUrl(List<String> blackUrl) {
+        this.blackUrl = blackUrl;
     }
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         /**在这个集合中的url不允许访问我们的资源
          * */
-        black();
+//        black();
         String path = exchange.getRequest().getURI().getPath();
         System.out.println(path);
         ServerHttpResponse response = exchange.getResponse();

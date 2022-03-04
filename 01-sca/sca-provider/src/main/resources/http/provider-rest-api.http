@@ -7,7 +7,7 @@ GET http://localhost:8081/provider/cache02
 
 ###
 
-GET http://localhost:8082/provider/echo/66567890
+GET http://localhost:8081/provider/echo/66567890
 
 ###
 

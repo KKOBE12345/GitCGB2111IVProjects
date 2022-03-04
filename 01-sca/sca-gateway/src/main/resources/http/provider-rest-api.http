@@ -16,11 +16,11 @@ tokenid: 1
 
 ###
 
-GET http://localhost:9000/nacos/kobejames/provider/echo5269/24
+GET http://localhost:9000/nacos/kobejames/provider/echo5269/28
 
 ###
 
-GET http://localhost:9000/nacos/kobejames/provider/echo5269/23
+GET http://localhost:9000/nacos/kobejames/provider/echo5269/29
 
 ###
 

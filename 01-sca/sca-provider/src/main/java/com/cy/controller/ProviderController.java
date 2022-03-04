@@ -1,6 +1,7 @@
 package com.cy.controller;
 
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -45,6 +46,7 @@ public class ProviderController {
     }
 
     @GetMapping("/provider/echo5269/{mmm}")
+    @SentinelResource
     public String word12(@PathVariable("mmm") String kobeeee) throws InterruptedException {
 //        System.out.println(logLevel);
 //            Thread.sleep(5000);
