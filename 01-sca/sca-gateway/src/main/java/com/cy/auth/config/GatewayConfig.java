@@ -25,10 +25,11 @@ public class GatewayConfig {
 
                 //封装响应数据并返回
 
-                Object jsonStr = JSON.toJSON(map);
+                String jsonStr = JSON.toJSONString(map);  //这个JSON是阿里巴巴写的
 
 
-                return ServerResponse.ok().body(Mono.just(jsonStr),
+                return ServerResponse.ok().     //构建一个builder对象
+                        body(Mono.just(jsonStr),   //构建MONO对象
                         String.class);
             }
         });
