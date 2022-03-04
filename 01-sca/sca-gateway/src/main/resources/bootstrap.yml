@@ -18,6 +18,13 @@ spring:
         port: 8719  #假如端口被占用会递增
       eager: true   #true表示关闭懒加载  服务启动时就会和SENTINEL控制台连接
     gateway:
+      globalcors: #跨域配置(写到配置文件的好处是可以将其配置写到配置中心)
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+            allowCredentials: true
       discovery:
         locator:
           enabled: true
@@ -41,6 +48,7 @@ spring:
 #            - Method=GET
           filters:   #当上一层返回值为TRUE时   这执行FILTER
             - StripPrefix=2  # 去掉访问路径PATH中的第一层目录
+
 #web:
 #  request:
 #    blackUrl:

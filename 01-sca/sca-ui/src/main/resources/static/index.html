@@ -1,11 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title></title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-<h1>Only the 4am sun can save you from wasting time</h1>
-<h1>你必须考虑两年后的世界</h1>
+<h2>Hello Spring Cloud Alibaba</h2>
+<button onclick="doBuy()">支付成功</button>
+<span id="result"></span>
+
+<!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+
+<script src="/js/axios.min.js"></script>
+<script>
+    function doBuy(){
+        let url="http://localhost:9000/nacos/kobe/provider/echo/34567";
+        let spanObj=document.getElementById("result");
+        axios.get(url)
+            .then(function (response) {
+                console.log(response);
+                //这边可以选择进行后端处理
+                // if(response.data.status==42999999){
+                //     spanObj.innerHTML=response.data.message;
+                //
+                // }else{
+                //     spanObj.innerHTML=response.data;
+                //
+                // }
+                spanObj.innerHTML=response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+                if(error.response.status==429){
+                    spanObj.innerHTML="你的访问太频繁了！！！"
+
+                }
+            });
+    }
+</script>
 </body>
 </html>

@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class GatewayConfig {
     public GatewayConfig(){
         GatewayCallbackManager.setBlockHandler(new BlockRequestHandler() {
