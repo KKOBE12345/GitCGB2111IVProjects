@@ -60,6 +60,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
             <exclusions>
+<!--                junit4的测试依赖经常会和别的依赖产生冲突  因此通常会将他排除-->
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
                     <artifactId>junit-vintage-engine</artifactId>

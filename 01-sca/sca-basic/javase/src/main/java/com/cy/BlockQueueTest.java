@@ -3,7 +3,7 @@ package com.cy;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-//阻塞队列
+//阻塞队列  先进先出
 public class BlockQueueTest {
     public static void main(String[] args) throws InterruptedException {
         BlockingQueue<Integer> bq=new ArrayBlockingQueue<>(3);
