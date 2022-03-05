@@ -15,7 +15,8 @@ public class Blog implements Serializable {
         this.id = id;
     }
 
-    public String getTitle() {
+    private String getTitle() {
+
         return title;
     }
 

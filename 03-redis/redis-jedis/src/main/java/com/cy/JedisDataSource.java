@@ -32,7 +32,7 @@ public class JedisDataSource {
 
 //方案2 懒加载  何时用 什么时候创建   只能创建一次
     private static volatile JedisPool jedisPool;
-    public static Jedis getJedisPool(){
+    public static Jedis getJedisConnection(){
         if(jedisPool==null){
             synchronized (JedisDataSource.class){
                 if(jedisPool==null){
@@ -42,7 +42,7 @@ public class JedisDataSource {
                     //设置最大空闲连接数
                     config.setMaxIdle(16);
                     //创建连接池并且将设置的配置也加入  默认最大是八个连接数  现在是100
-                    JedisPool jedisPool = new JedisPool(config,"192.168.126.128", 6379);
+                    jedisPool = new JedisPool(config,"192.168.126.128", 6379);
                 }
 
             }

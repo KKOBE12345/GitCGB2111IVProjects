@@ -17,8 +17,10 @@ public class RedisConfigTest {
         ValueOperations vo = redisTemplate.opsForValue();
         Blog blog = new Blog();
         blog.setId(100l);
-//        blog.setTitle("hello redis");
+        blog.setTitle("hello redis");
         vo.set("blog-redis", blog);
+        blog= (Blog) vo.get("blog-redis");
+        System.out.println(blog);
     }
 
     @Test
