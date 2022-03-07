@@ -13,7 +13,8 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 
 import java.net.UnknownHostException;
 
-/**在配置类自定义redistemplate的配置
+/**
+ * 在配置类自定义redistemplate的配置
  * */
 
 @Configuration
@@ -35,7 +36,8 @@ public class RedisConfig {
     //下面是一个高级定制   改变默认Json方式
 
     @Bean
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
+    public RedisTemplate<Object, Object> redisTemplate(
+            RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
         RedisTemplate<Object, Object> template = new RedisTemplate();
         template.setConnectionFactory(redisConnectionFactory);
         //修改默认的序列化方式（默认是JDK序列化方式）

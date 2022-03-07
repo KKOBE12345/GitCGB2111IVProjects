@@ -25,8 +25,14 @@ public class MenuServiceImpl implements MenuService {
 //    @Autowired
 //    private RedisTemplate redisTemplate;
 
-    @Resource(name = "redisTemplate" )  //这种写法  参考官方
+//    @Resource(name = "redisTemplate" )  //这种写法  参考官方
+//    private ValueOperations vo;
+
+
     private ValueOperations vo;
+    public MenuServiceImpl(RedisTemplate redisTemplate) {
+        this.vo=redisTemplate.opsForValue();
+    }
 
     public Menu selectById(Long id) {
         //先查REDIS 假如有 从缓存中取数据

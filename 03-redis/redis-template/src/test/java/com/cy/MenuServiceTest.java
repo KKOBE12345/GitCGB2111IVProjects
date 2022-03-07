@@ -4,11 +4,13 @@ import com.cy.pojo.Menu;
 import com.cy.service.MenuService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class MenuServiceTest {
     @Autowired
+    @Qualifier("aopCacheMenuServiceImpl")
     private MenuService menuService;
 
 
@@ -22,7 +24,7 @@ public class MenuServiceTest {
     @Test
     void testInsertMenu(){
         Menu menu = new Menu();
-        menu.setName("kobekobekobekoeb resource");
+        menu.setName("kobekjamesjames resource");
         menu.setPermission("sys:res:daochu");
         menuService.insertMenu(menu);
 
@@ -32,7 +34,7 @@ public class MenuServiceTest {
     @Test
     void testUpdateMenu(){
         Menu menu = menuService.selectById(8L);
-        menu.setName("import resource kkkkkkkkk");
+        menu.setName("import resource kobe3456789kobe");
         menu.setPermission("sys:res:import");
 
         menuService.updateMenu(menu);
