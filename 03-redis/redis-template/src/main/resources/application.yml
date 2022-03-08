@@ -1,7 +1,7 @@
 spring:
   redis:
     host: 192.168.126.128
-    port: 6379
+    port: 6380
   datasource:
     url: jdbc:mysql:///jt-sso?serverTimezone=Asia/Shanghai&characterEncoding=utf8
 #    url: jdbc:mysql:///jt-sso?serverTimezone=Asia/Shanghai&characterEncoding=utf8
