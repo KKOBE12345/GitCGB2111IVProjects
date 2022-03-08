@@ -1,7 +1,21 @@
 spring:
   redis:
-    host: 192.168.126.128
-    port: 6380
+    cluster:
+      nodes: 192.168.126.128:8010,192.168.126.128:8011,192.168.126.128:8012,192.168.126.128:8013,192.168.126.128:8014,192.168.126.128:8015
+      max-redirects: 3
+#    jedis:       #不需要额外加上一个依赖
+#      pool:
+#        max-active: 8  #最大连接数
+#        max-idle: 8   #最大空闲连接池
+    #这是lettuce连接池
+    lettuce:    #需要额外加上一个依赖   commons-pool2
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+
+#    host: 192.168.126.128
+#    port: 6380
   datasource:
     url: jdbc:mysql:///jt-sso?serverTimezone=Asia/Shanghai&characterEncoding=utf8
 #    url: jdbc:mysql:///jt-sso?serverTimezone=Asia/Shanghai&characterEncoding=utf8
