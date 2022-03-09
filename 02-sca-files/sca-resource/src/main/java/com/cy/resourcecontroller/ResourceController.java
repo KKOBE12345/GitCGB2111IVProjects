@@ -2,6 +2,7 @@ package com.cy.resourcecontroller;
 
 
 import com.cy.resource.aspect.RequiredLog;
+import com.cy.resource.aspect.WorkLog;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -27,6 +28,7 @@ public class ResourceController {
     private String resourceHost;
 
     //基于ID去删除
+    @WorkLog("记录操作时间")
     @PreAuthorize("hasAnyAuthority('sys:res:delete')")
     @DeleteMapping("/upload/delete/{id}")
     public String deleteById(@PathVariable Integer id){
