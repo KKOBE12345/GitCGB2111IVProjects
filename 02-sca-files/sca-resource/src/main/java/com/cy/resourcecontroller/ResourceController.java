@@ -6,6 +6,7 @@ import com.cy.resource.aspect.WorkLog;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,7 +37,7 @@ public class ResourceController {
     }
 
 
-    @RequiredLog("文件上传切面注解")
+    @RequiredLog(value = "文件上传切面注解")
     @PostMapping("/upload")
     @PreAuthorize("hasAnyAuthority('sys:res:create')")
     public String uploadfile(MultipartFile uploadFile) throws IOException {

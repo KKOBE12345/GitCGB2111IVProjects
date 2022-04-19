@@ -24,4 +24,8 @@ public class Log implements Serializable {
     /**执行这个业务的耗时*/
     private Long time;
     /**业务执行过程是否成功了*/
+
+    private Integer status;
+    /**可能出现的错误信息*/
+    private String error;
 }

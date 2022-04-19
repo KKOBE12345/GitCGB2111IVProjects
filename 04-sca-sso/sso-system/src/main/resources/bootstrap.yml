@@ -1,0 +1,23 @@
+server:
+  port: 8061
+spring:
+  application:
+    name: sso-system
+  datasource:
+    url: jdbc:mysql:///jt-sso?serverTimezone=Asia/Shanghai&characterEncoding=utf8
+    username: root
+    password: root
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+    sentinel:
+      transport:
+        dashboard: localhost:8180
+      eager: true
+logging:
+  level:
+    com.cy: debug

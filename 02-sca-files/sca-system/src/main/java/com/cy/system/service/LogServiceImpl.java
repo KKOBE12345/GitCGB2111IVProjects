@@ -23,8 +23,9 @@ public class LogServiceImpl implements LogService {
      *  但是这个异步任务要启动，需要在启动类
      *  或配置上添加@EnableAsync注解
      */
-    @Async
+
     @Override
+    @Async
     public void insertLog(Log userlog) {
 
         logMapper.insert(userlog);
