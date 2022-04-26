@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients
+@EnableFeignClients   //在dev分支上实现bug修复
 public class SsoApplication {
 
     //这是一个统一的认证中心   实现单点登录系统  SSO
