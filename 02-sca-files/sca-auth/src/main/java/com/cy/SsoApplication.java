@@ -13,5 +13,6 @@ public class SsoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SsoApplication.class, args);
+        System.out.println("C2客户端操作");
     }
 }
