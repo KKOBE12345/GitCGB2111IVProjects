@@ -14,5 +14,7 @@ public class SsoApplication {
     public static void main(String[] args) {
         SpringApplication.run(SsoApplication.class, args);
         System.out.println("123branch go go go");
+        System.out.println("c1客户端进行了修改操作");
+
     }
 }
