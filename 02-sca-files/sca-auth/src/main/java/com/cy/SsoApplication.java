@@ -18,5 +18,7 @@ public class SsoApplication {
         System.out.println("dev分支又一次进行了更新操作");
 
         System.out.println("dev分支第三次进行了更新操作");
+
+        System.out.println("c2客户端进行了修改操作");
     }
 }
